@@ -198,4 +198,76 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // --- Backend API Integration ---
+    
+    // Modal Logic
+    const btnAddVehicle = document.getElementById('btn-add-vehicle');
+    const modal = document.getElementById('add-vehicle-modal');
+    const btnCloseModal = document.querySelector('.close-modal');
+    const formAddVehicle = document.getElementById('add-vehicle-form');
+
+    if (btnAddVehicle && modal) {
+        btnAddVehicle.addEventListener('click', () => modal.classList.add('active'));
+        btnCloseModal.addEventListener('click', () => modal.classList.remove('active'));
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) modal.classList.remove('active');
+        });
+        
+        // Form Submission
+        formAddVehicle.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const payload = {
+                name: document.getElementById('v-name').value,
+                machine_type: document.getElementById('v-type').value,
+                temperature: parseFloat(document.getElementById('v-temp').value),
+                vibration: parseFloat(document.getElementById('v-vib').value)
+            };
+            
+            try {
+                // Send to FastAPI
+                const response = await fetch('/api/machines', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                
+                if (response.ok) {
+                    alert('Machine successfully registered to the network!');
+                    modal.classList.remove('active');
+                    formAddVehicle.reset();
+                    fetchDashboardData(); // force update
+                }
+            } catch (err) {
+                console.error('Error saving machine:', err);
+                alert('Failed to save machine. Ensure backend is running.');
+            }
+        });
+    }
+
+    // Polling Dashboard Data
+    async function fetchDashboardData() {
+        try {
+            const res = await fetch('/api/dashboard');
+            if (!res.ok) return;
+            const data = await res.json();
+            
+            const kpiValues = document.querySelectorAll('.kpi-value');
+            if (kpiValues.length >= 6) {
+                kpiValues[0].innerHTML = `${data.machine_health}<span class="unit">%</span>`;
+                kpiValues[1].innerHTML = data.failure_risk;
+                kpiValues[2].innerHTML = `${data.running_machines}<span class="unit">/${data.total_machines}</span>`;
+                kpiValues[3].innerHTML = `${data.energy_usage}<span class="unit">MW</span>`;
+                kpiValues[5].innerHTML = data.alerts_count;
+            }
+        } catch (err) {
+            console.error('Dashboard polling failed:', err);
+        }
+    }
+
+    // Poll every 3 seconds
+    setInterval(fetchDashboardData, 3000);
+    // Initial fetch
+    fetchDashboardData();
 });

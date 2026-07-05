@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SentinelEdge AI | Industrial Edge Intelligence</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="ph-fill ph-hexagon"></i>
+                    <span>SentinelEdge <span class="text-accent">AI</span></span>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active"><a href="#"><i class="ph ph-squares-four"></i> Dashboard</a></li>
+                    <li><a href="#"><i class="ph ph-cube"></i> Digital Twin</a></li>
+                    <li><a href="#"><i class="ph ph-heartbeat"></i> Machine Health</a></li>
+                    <li><a href="#"><i class="ph ph-brain"></i> AI Analytics</a></li>
+                    <li><a href="#"><i class="ph ph-wrench"></i> Predictive Maintenance</a></li>
+                    <li><a href="#"><i class="ph ph-shield-check"></i> Worker Safety</a></li>
+                    <li><a href="#"><i class="ph ph-lightning"></i> Energy Optimization</a></li>
+                    <li><a href="#"><i class="ph ph-bell"></i> Alerts</a></li>
+                    <li><a href="#"><i class="ph ph-file-text"></i> Reports</a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <ul>
+                    <li><a href="#"><i class="ph ph-gear"></i> Settings</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Navbar -->
+            <header class="topbar">
+                <div class="search-bar">
+                    <i class="ph ph-magnifying-glass"></i>
+                    <input type="text" placeholder="Search machines, alerts, or reports...">
+                </div>
+                <div class="topbar-actions">
+                    <div class="factory-selector">
+                        <i class="ph ph-factory"></i>
+                        <span>Berlin Plant Alpha</span>
+                        <i class="ph ph-caret-down"></i>
+                    </div>
+                    <div class="live-status">
+                        <span class="pulse"></span>
+                        Live
+                    </div>
+                    <button class="icon-btn">
+                        <i class="ph ph-bell"></i>
+                        <span class="badge">3</span>
+                    </button>
+                    <div class="user-profile">
+                        <img src="https://ui-avatars.com/api/?name=Admin+User&background=0D1117&color=00F0FF" alt="User">
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-scroll">
+                <div id="dashboard-view">
+                <!-- Hero Section -->
+                <section class="hero-section">
+                    <div class="hero-content">
+                        <h1>Industrial AI Edge Intelligence Platform</h1>
+                        <p class="subtitle">Real-time AI Monitoring • Predictive Maintenance • Worker Safety</p>
+                    </div>
+                    <div class="hero-actions">
+                        <button class="btn btn-primary"><i class="ph ph-download-simple"></i> Export Report</button>
+                    </div>
+                </section>
+
+                <!-- Live KPI Cards -->
+                <section class="kpi-grid">
+                    <div class="kpi-card glass-panel">
+                        <div class="kpi-header">
+                            <span class="kpi-title">Machine Health</span>
+                            <i class="ph ph-heartbeat text-cyan"></i>
+                        </div>
+                        <div class="kpi-value">94.2<span class="unit">%</span></div>
+                        <div class="kpi-trend positive"><i class="ph ph-trend-up"></i> +1.2%</div>
+                    </div>
+                    <div class="kpi-card glass-panel">
+                        <div class="kpi-header">
+                            <span class="kpi-title">Failure Risk</span>
+                            <i class="ph ph-warning text-warning"></i>
+                        </div>
+                        <div class="kpi-value">Low</div>
+                        <div class="kpi-trend neutral">Stable</div>
+                    </div>
+                    <div class="kpi-card glass-panel">
+                        <div class="kpi-header">
+                            <span class="kpi-title">Running Machines</span>
+                            <i class="ph ph-engine text-blue"></i>
+                        </div>
+                        <div class="kpi-value">124<span class="unit">/128</span></div>
+                        <div class="kpi-trend positive">97% Uptime</div>
+                    </div>
+                    <div class="kpi-card glass-panel">
+                        <div class="kpi-header">
+                            <span class="kpi-title">Energy Usage</span>
+                            <i class="ph ph-lightning text-purple"></i>
+                        </div>
+                        <div class="kpi-value">1.4<span class="unit">MW</span></div>
+                        <div class="kpi-trend negative"><i class="ph ph-trend-down"></i> -5.4%</div>
+                    </div>
+                    <div class="kpi-card glass-panel">
+                        <div class="kpi-header">
+                            <span class="kpi-title">Safety Score</span>
+                            <i class="ph ph-shield-check text-green"></i>
+                        </div>
+                        <div class="kpi-value">99.8<span class="unit">%</span></div>
+                        <div class="kpi-trend positive">Optimal</div>
+                    </div>
+                    <div class="kpi-card glass-panel">
+                        <div class="kpi-header">
+                            <span class="kpi-title">Today's Alerts</span>
+                            <i class="ph ph-siren text-danger"></i>
+                        </div>
+                        <div class="kpi-value">3</div>
+                        <div class="kpi-trend negative">Requires attention</div>
+                    </div>
+                </section>
+
+                <div class="dashboard-grid">
+                    <!-- Digital Twin Section -->
+                    <section class="digital-twin-section glass-panel span-2">
+                        <div class="section-header">
+                            <h2><i class="ph ph-cube"></i> Digital Twin Explorer</h2>
+                            <div class="status-badge status-running">Running</div>
+                        </div>
+                        <div class="digital-twin-container">
+                            <div class="twin-visual">
+                                <!-- Placeholder for 3D model, using CSS to simulate a futuristic interface -->
+                                <div class="wireframe-box">
+                                    <div class="scan-line"></div>
+                                    <div class="ring outer-ring"></div>
+                                    <div class="ring inner-ring"></div>
+                                    <div class="node n1"><span class="tooltip">Temp: 85°C</span></div>
+                                    <div class="node n2"><span class="tooltip">Vib: 2.1mm/s</span></div>
+                                    <div class="node n3"><span class="tooltip">RPM: 3500</span></div>
+                                </div>
+                            </div>
+                            <div class="twin-metrics">
+                                <div class="metric-row"><span class="label">Temperature</span><span class="val text-warning">85°C</span></div>
+                                <div class="metric-row"><span class="label">Vibration</span><span class="val">2.1 mm/s</span></div>
+                                <div class="metric-row"><span class="label">RPM</span><span class="val">3,500</span></div>
+                                <div class="metric-row"><span class="label">Power</span><span class="val">45 kW</span></div>
+                                <div class="metric-row"><span class="label">Bearing Health</span><span class="val text-cyan">92%</span></div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- AI Insights Panel -->
+                    <section class="ai-insights-section glass-panel">
+                        <div class="section-header">
+                            <h2><i class="ph ph-brain"></i> AI Insights</h2>
+                            <span class="ai-confidence">98% Confidence</span>
+                        </div>
+                        <div class="insights-content">
+                            <div class="insight-item">
+                                <div class="insight-label">Remaining Useful Life (RUL)</div>
+                                <div class="insight-value text-cyan">420 Hours</div>
+                                <div class="progress-bar"><div class="fill" style="width: 75%;"></div></div>
+                            </div>
+                            <div class="insight-item">
+                                <div class="insight-label">Failure Probability (Next 7 days)</div>
+                                <div class="insight-value text-warning">14%</div>
+                                <div class="progress-bar"><div class="fill bg-warning" style="width: 14%;"></div></div>
+                            </div>
+                            <div class="insight-box recommendation">
+                                <h4><i class="ph ph-wrench"></i> AI Recommendation</h4>
+                                <p>Schedule bearing replacement for Motor Unit A-3 within the next 14 days to prevent unplanned downtime.</p>
+                            </div>
+                            <div class="insight-box downtime">
+                                <h4>Predicted Downtime Cost</h4>
+                                <div class="cost">$24,500 <span class="small">/ hour</span></div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Real-Time Sensor Charts -->
+                    <section class="charts-section glass-panel span-2">
+                        <div class="section-header">
+                            <h2><i class="ph ph-chart-line-up"></i> Real-Time Telemetry</h2>
+                            <div class="chart-filters">
+                                <button class="filter-btn active">Temp</button>
+                                <button class="filter-btn">Vibration</button>
+                                <button class="filter-btn">Pressure</button>
+                                <button class="filter-btn">Power</button>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="telemetryChart"></canvas>
+                        </div>
+                    </section>
+
+                    <!-- Worker Safety Module -->
+                    <section class="safety-section glass-panel">
+                        <div class="section-header">
+                            <h2><i class="ph ph-shield-check"></i> Worker Safety Vision</h2>
+                            <div class="live-indicator"><span class="dot"></span> Live Feed</div>
+                        </div>
+                        <div class="safety-content">
+                            <div class="camera-feed">
+                                <div class="bounding-box person-1"><span>PPE Valid</span></div>
+                                <div class="bounding-box zone"><span>Restricted Zone</span></div>
+                                <div class="camera-overlay">CAM-04 | Assembly Line B</div>
+                            </div>
+                            <div class="safety-metrics">
+                                <div class="s-metric"><i class="ph ph-hard-hat"></i> PPE Detection: <span>Active</span></div>
+                                <div class="s-metric"><i class="ph ph-warning-octagon"></i> Zone Breaches: <span>0</span></div>
+                                <div class="s-metric"><i class="ph ph-person-simple-throw"></i> Fall Detection: <span>Active</span></div>
+                            </div>
+                            <button class="btn btn-danger w-100"><i class="ph ph-siren"></i> Trigger Emergency Alert</button>
+                        </div>
+                    </section>
+
+                    <!-- Maintenance Timeline -->
+                    <section class="maintenance-section glass-panel">
+                        <div class="section-header">
+                            <h2><i class="ph ph-calendar-check"></i> Maintenance Schedule</h2>
+                        </div>
+                        <div class="timeline">
+                            <div class="timeline-item past">
+                                <div class="t-dot"></div>
+                                <div class="t-content">
+                                    <div class="t-date">Yesterday, 14:00</div>
+                                    <div class="t-title">Conveyor Belt Alignment</div>
+                                    <div class="t-desc">Completed by Tech Team Alpha</div>
+                                </div>
+                            </div>
+                            <div class="timeline-item upcoming">
+                                <div class="t-dot"></div>
+                                <div class="t-content">
+                                    <div class="t-date">Today, 18:30</div>
+                                    <div class="t-title text-warning">Cooling System Check</div>
+                                    <div class="t-desc">AI Recommended • High Priority</div>
+                                </div>
+                            </div>
+                            <div class="timeline-item future">
+                                <div class="t-dot"></div>
+                                <div class="t-content">
+                                    <div class="t-date">Jul 12, 09:00</div>
+                                    <div class="t-title">Bearing Replacement</div>
+                                    <div class="t-desc">Scheduled Preventative Maintenance</div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Energy Analytics -->
+                    <section class="energy-section glass-panel">
+                        <div class="section-header">
+                            <h2><i class="ph ph-lightning"></i> Energy Analytics</h2>
+                        </div>
+                        <div class="energy-content">
+                            <div class="energy-scores">
+                                <div class="e-score">
+                                    <div class="label">Efficiency Score</div>
+                                    <div class="value text-green">94/100</div>
+                                </div>
+                                <div class="e-score">
+                                    <div class="label">Carbon Savings</div>
+                                    <div class="value text-cyan">2.4t <span class="small">this mo</span></div>
+                                </div>
+                            </div>
+                            <div class="chart-container small-chart">
+                                <canvas id="energyChart"></canvas>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Alert Center -->
+                    <section class="alerts-section glass-panel span-full">
+                        <div class="section-header">
+                            <h2><i class="ph ph-bell-ringing"></i> Alert Center & Activity</h2>
+                            <button class="btn btn-sm btn-outline">View All</button>
+                        </div>
+                        <div class="alerts-list">
+                            <div class="alert-item critical">
+                                <div class="alert-icon"><i class="ph ph-warning-circle"></i></div>
+                                <div class="alert-content">
+                                    <div class="alert-title">Vibration Anomaly Detected</div>
+                                    <div class="alert-desc">Motor Unit C-4 exceeding safety thresholds (4.2 mm/s). Immediate inspection required.</div>
+                                </div>
+                                <div class="alert-time">10 mins ago</div>
+                                <button class="btn btn-sm">Acknowledge</button>
+                            </div>
+                            <div class="alert-item warning">
+                                <div class="alert-icon"><i class="ph ph-thermometer"></i></div>
+                                <div class="alert-content">
+                                    <div class="alert-title">Temperature Spiking</div>
+                                    <div class="alert-desc">Hydraulic pump operating at 88°C (Normal: 70°C). AI predicts failure in 4 days if unresolved.</div>
+                                </div>
+                                <div class="alert-time">45 mins ago</div>
+                                <button class="btn btn-sm">Create Ticket</button>
+                            </div>
+                            <div class="alert-item info">
+                                <div class="alert-icon"><i class="ph ph-info"></i></div>
+                                <div class="alert-content">
+                                    <div class="alert-title">Firmware Update Available</div>
+                                    <div class="alert-desc">Edge Node 02 is ready for OTA update to v4.2.1.</div>
+                                </div>
+                                <div class="alert-time">2 hours ago</div>
+                                <button class="btn btn-sm">Update Now</button>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                </div>
+
+                <!-- Placeholder View -->
+                <div id="placeholder-view" style="display: none; height: 70vh; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+                    <i class="ph ph-hard-hat" style="font-size: 5rem; color: var(--accent-blue); margin-bottom: 24px; filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.3));"></i>
+                    <h2 id="placeholder-title" style="font-size: 2.5rem; margin-bottom: 12px; font-family: var(--font-heading);">Section Name</h2>
+                    <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 500px; line-height: 1.6;">This module is part of the SentinelEdge blueprint but is currently under construction in this UI prototype.</p>
+                    <button class="btn btn-primary" style="margin-top: 24px;" onclick="document.querySelector('.sidebar-nav a').click()">Return to Dashboard</button>
+                </div>
+                
+                <!-- Footer -->
+                <footer class="dashboard-footer">
+                    <p>&copy; 2026 SentinelEdge AI Systems. Secure Industrial Edge Connection.</p>
+                    <div class="footer-links">
+                        <a href="#">Documentation</a>
+                        <a href="#">Support</a>
+                        <a href="#">System Status: <span class="text-green">All Systems Nominal</span></a>
+                    </div>
+                </footer>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
